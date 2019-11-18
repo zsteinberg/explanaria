@@ -23,7 +23,7 @@ let coordinateLine2ColorDarker = 'hsl(160,71%,50%)';
 let coordinateLine3Color = 'hsl(60,81%,69%)';
 let coordinateLine3ColorDarker = 'hsl(60,71%,50%)';
 
-let coordinateLine4Color = 'maroon';
+let coordinateLine4Color = 'hsl(0, 85%, 74%)'; //matches thing in 7 visualizing 4d.js
 
 
 let disabledGray = "#f0f0f0";

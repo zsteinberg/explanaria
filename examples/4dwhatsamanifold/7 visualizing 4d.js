@@ -22,6 +22,7 @@ function colorMap(wCoordinate){
  let color = 40;
  let zeroWColor = new THREE.Color().setHSL((140)/360, 0.7, 0.6); //formerly 0x55e088
  if(wCoordinate > 0){
+   //This should be coordinateline4color
    return zeroWColor.lerp(new THREE.Color().setHSL(0/360, 0.85, 0.74), fourDAbsRampAmt); 
  }else{
    return zeroWColor.lerp(new THREE.Color().setHSL((140*2)/360, 0.85, 0.74), fourDAbsRampAmt); 
@@ -65,18 +66,7 @@ class Polychoron{
             //set up 4D color lerping by bolting it onto the existing material like a terrible person
             output.material.vertexColors = THREE.VertexColors;
 
-	        let NUM_POINTS_IN_A_LINE = 2;
-            let NUM_LINES = 1;
-
-	        let colorArr = new Float32Array(NUM_POINTS_IN_A_LINE * NUM_LINES * 3);
-            this.setColorInArray(this.points[ptAIndex], colorArr, 0);
-            this.setColorInArray(this.points[ptBIndex], colorArr, 3);
-
-            let colorAttribute = new THREE.Float32BufferAttribute( colorArr, 3)
-
-	        output._geometry.addAttribute( 'color', colorAttribute  )
-		    colorAttribute.needsUpdate = true;
-            this.colorAttributes.push(colorAttribute);
+            this.colorAttributes.push(output._geometry.attributes.color);
 
         }
     }
